@@ -6,9 +6,11 @@ def do_copy():
     time.sleep(1)
     pyautogui.hotkey('ctrl','c')
 
+
 def do_paste():
     time.sleep(1)
     pyautogui.hotkey('ctrl','v')
+
 
 def do_screenshot():
     screenshot = pyautogui.screenshot()
