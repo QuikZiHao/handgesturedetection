@@ -63,4 +63,29 @@ def previous_track():
     except:
         print("Unknown operating system. No action defined.")
 
+
+def play_pause_track():
+    def windows_action():
+        # Simulate pressing the 'Previous Track' multimedia key
+        pyautogui.press('playpause')
+
+    def macos_action():
+        # Simulate pressing Control + Command + Left Arrow
+        pyautogui.hotkey('ctrl', 'command', 'space')
+
+    def linux_action():
+        # Simulate pressing Alt + Left Arrow
+        pyautogui.hotkey('alt', 'p')  
+
+    os_action_map = {
+    "Windows": windows_action,
+    "Darwin": macos_action,
+    "Linux": linux_action
+    }
+    action = os_action_map[detect_os()]
+    try:
+        action()
+    except:
+        print("Unknown operating system. No action defined.")
+
 previous_track()
