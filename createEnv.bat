@@ -13,7 +13,7 @@ echo Virtual environment created.
 
 call handgesture\Scripts\activate
 
-pip installed -r requirements.txt
+pip install -r requirements.txt
 
 echo Virtual environment setup complete.
 pause
