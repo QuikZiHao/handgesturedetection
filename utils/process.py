@@ -18,6 +18,7 @@ class Proceed:
         if self.stamp == self.remember_stamp:
             self.initial()
             return -1
+        self.conf_array[class_idx] += score
         return self.check(class_idx)
     
     def initial(self):
