@@ -28,7 +28,5 @@ class Proceed:
     def check(self, class_idx:int) ->int:
         if self.conf_array[class_idx] >= self.proceed_score:
             return class_idx
-        return -1
-        
-
+        return -1     
         
