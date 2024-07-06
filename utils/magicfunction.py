@@ -14,6 +14,7 @@ def do_paste():
 
 def do_screenshot():
     screenshot = pyautogui.screenshot()
+    
 
 
 def next_track():
