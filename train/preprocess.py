@@ -32,7 +32,7 @@ def main():
     #get the data
     data =[]
     for file in dataset_pathways:
-        temp = pd.read_csv(file)
+        temp = pd.read_csv(file,header=None)
         data.append(temp)
     data = pd.concat(data, ignore_index=True)
     data.sort_values(by=data.columns[0], inplace=True)

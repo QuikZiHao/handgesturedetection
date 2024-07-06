@@ -1,0 +1,4 @@
+ultralytics==8.2.49
+pyautogui
+mediapipe
+tdqm
