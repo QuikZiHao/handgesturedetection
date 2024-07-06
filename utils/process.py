@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class Proceed:
     def __init__(self, func_amt:int, remember_stamp:int, proceed_score:float= 10.0):
         self.func_amt = func_amt
