@@ -1,0 +1,4 @@
+0 pause/start
+1 point left
+2 point right
+3 screenshot
