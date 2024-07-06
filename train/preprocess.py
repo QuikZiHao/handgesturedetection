@@ -8,8 +8,8 @@ from pathlib import Path
 def get_args():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("--dir", type=str, default=r'model/dataset')
-    parser.add_argument("--datafolder", type=str, default=r'model/dataset')
+    parser.add_argument("--dir", type=str, default=r'model\dataset')
+    parser.add_argument("--datafolder", type=str, default=r'model\dataset')
 
     args = parser.parse_args()
 
@@ -29,7 +29,6 @@ def main():
         exit()
      
     dataset_pathways = [os.path.join(args.datafolder, file) for file in file_list if file.endswith('.csv') and os.path.isfile(os.path.join(args.datafolder, file))]
-    
     #get the data
     data =[]
     for file in dataset_pathways:
@@ -52,8 +51,7 @@ def main():
         temp = data[data.iloc[:, 0]==idx]
         temp = temp.iloc[:,1:]
         output_file = os.path.join(args.dir, str(idx))
-        print(output_file)
-        if check_dir == False:
+        if check_dir(output_file) == False:
             os.makedirs(output_file)
         output_file = os.path.join(output_file, f'{idx}.csv')
         # Determine if the file already exists
