@@ -2,3 +2,5 @@
 1 point left
 2 point right
 3 screenshot
+4 paste
+5 copy
