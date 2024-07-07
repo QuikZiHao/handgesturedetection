@@ -91,11 +91,11 @@ class runWebCam():
         model.eval()
         
         # Making test frames from camera into test dataset
-        test_dataset = EvalDataset(pre_processed_landmark_list)
-        test_data = DataLoader(test_dataset, shuffle=False)
+        # test_dataset = EvalDataset(pre_processed_landmark_list)
+        # test_data = DataLoader(test_dataset, shuffle=False)
 
         # Applying model to the test data
-        gesture = model(test_data)
+        gesture = model(torch.tensor(pre_processed_landmark_list))
         print(gesture)
         return gesture
 
