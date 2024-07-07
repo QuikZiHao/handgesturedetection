@@ -15,8 +15,7 @@ def do_paste():
 def do_screenshot():
     screenshot = pyautogui.screenshot()
     
-
-
+    
 def next_track():
     def windows_action():
     # Simulate pressing the 'Next Track' multimedia key
