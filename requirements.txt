@@ -1,0 +1,6 @@
+ultralytics==8.2.49
+pyautogui
+mediapipe
+tdqm
+tensorflow
+tf-nightly
