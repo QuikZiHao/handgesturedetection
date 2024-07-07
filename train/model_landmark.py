@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+import numpy as np
 
 
 class LandMarkModel(nn.Module):
@@ -12,6 +13,12 @@ class LandMarkModel(nn.Module):
             nn.ReLU(),
             nn.Linear(in_features=32, out_features= output_size, bias=True)
         )
+        self.softmax = nn.Softmax(1)
 
     def forward(self,x) -> torch.Tensor:
         return self.fc_layer(x)
+    
+    def get_score(self, preprocess_landmark:list[np.ndarray]):
+        gesture = self.forward(torch.tensor(preprocess_landmark))
+        gesture = self.softmax(gesture)
+        return gesture

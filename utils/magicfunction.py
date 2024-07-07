@@ -2,7 +2,7 @@ import pyautogui
 import time
 import os
 from datetime import datetime
-from checkOS import detect_os
+from utils.checkOS import detect_os
 
 def do_copy():
     time.sleep(1)
@@ -49,13 +49,16 @@ def previous_track():
     def windows_action():
         # Simulate pressing the 'Previous Track' multimedia key
         pyautogui.press('prevtrack')
+        pyautogui.press('prevtrack')
 
     def macos_action():
         # Simulate pressing Control + Command + Left Arrow
         pyautogui.hotkey('ctrl', 'command', 'left')
+        pyautogui.hotkey('ctrl', 'command', 'left')
 
     def linux_action():
         # Simulate pressing Alt + Left Arrow
+        pyautogui.hotkey('alt', 'left')  
         pyautogui.hotkey('alt', 'left')  
 
     os_action_map = {
