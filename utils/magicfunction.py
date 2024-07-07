@@ -1,5 +1,7 @@
 import pyautogui
 import time
+import os
+from datetime import datetime
 from checkOS import detect_os
 
 def do_copy():
@@ -14,6 +16,8 @@ def do_paste():
 
 def do_screenshot():
     screenshot = pyautogui.screenshot()
+    file_path = os.path.join('assests',datetime.now().strftime("%Y%m%d%H%M%S.png"))
+    screenshot.save(file_path)
     
 
 
@@ -90,5 +94,3 @@ def play_pause_track():
         action()
     except:
         print("Unknown operating system. No action defined.")
-
-previous_track()

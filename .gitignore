@@ -1,6 +1,6 @@
 handgesture
-screenshot/*
+assests/*
 __pycache__/
 flow.png
 dataset
-model/*
+model/save/*
