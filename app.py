@@ -3,14 +3,16 @@ import numpy as np
 import mediapipe as mp
 import argparse
 import itertools
+from train.model_landmark import LandMarkModel
+from model.eval_dataset import EvalDataset
+from torch.utils.data import Dataset, DataLoader
+import torch
+
 # import time
 import copy
 # from utils import CvFpsCalc
 
 class runWebCam():
-    def __init__(self) -> None:
-        pass
-        
     def get_args(self):
         parser = argparse.ArgumentParser()
 
@@ -27,6 +29,10 @@ class runWebCam():
                             help='min_tracking_confidence',
                             type=int,
                             default=0.5)
+        parser.add_argument("--model_path",
+                            help='model_path',
+                            type=str,
+                            default='model/save/model.pth')
 
         args = parser.parse_args()
 
@@ -75,20 +81,37 @@ class runWebCam():
 
         return temp_landmark_list
     
+    def recogniseGesture(self, pre_processed_landmark_list): 
+        # Import model 
+        args = self.get_args()
+        model = LandMarkModel(input_size=42,output_size=6)
+        model_path = args.model_path
+        model_load = torch.load(model_path)
+        model.load_state_dict(model_load)
+        model.eval()
+        
+        # Making test frames from camera into test dataset
+        test_dataset = EvalDataset(pre_processed_landmark_list)
+        test_data = DataLoader(test_dataset, shuffle=False)
+
+        # Applying model to the test data
+        gesture = model(test_data)
+        print(gesture)
+        return gesture
 
     def startVideo(self):
         # Argument parsing #################################################################
         args = self.get_args()
 
-        cap_device = args.device
-        cap_width = args.width
-        cap_height = args.height
+        # cap_device = args.device
+        # cap_width = args.width
+        # cap_height = args.height
 
         use_static_image_mode = args.use_static_image_mode
         min_detection_confidence = args.min_detection_confidence
         min_tracking_confidence = args.min_tracking_confidence
 
-        use_brect = True
+        # use_brect = True
 
         # Model load #############################################################
         mp_hands = mp.solutions.hands
@@ -120,7 +143,9 @@ class runWebCam():
 
                     # Obtain normalized coordinates
                     pre_processed_landmark_list = self.pre_process_landmark(landmark_list)
-                    print(pre_processed_landmark_list)
+                    
+                    # Predict the gesture
+                    gesture = self.recogniseGesture(pre_processed_landmark_list=pre_processed_landmark_list)
                                                 
             # If frame is read correctly ret is True
             if not ret:
