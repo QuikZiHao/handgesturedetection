@@ -1,7 +1,6 @@
 import numpy as np
 import torch.nn
 
-
 class Proceed:
     def __init__(self, func_amt:int, remember_stamp:int=100, proceed_score:float= 10.0):
         self.func_amt = func_amt
@@ -20,7 +19,7 @@ class Proceed:
         if self.flag == False:
             print('cooldown')    
             self.cooldown += 1
-            if self.cooldown > 100:
+            if self.cooldown > 20:
                 self.flag = True
                 self.cooldown = 0
             return -1

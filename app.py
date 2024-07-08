@@ -1,7 +1,6 @@
 import numpy as np
 import argparse
 from train.model_landmark import LandMarkModel
-from model.eval_dataset import EvalDataset
 from torch.utils.data import Dataset, DataLoader
 import torch
 import cv2

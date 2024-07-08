@@ -16,7 +16,7 @@ def do_paste():
 
 def do_screenshot():
     screenshot = pyautogui.screenshot()
-    file_path = os.path.join('assests',datetime.now().strftime("%Y%m%d%H%M%S.png"))
+    file_path = os.path.join('assets',datetime.now().strftime("%Y%m%d%H%M%S.png"))
     screenshot.save(file_path)
     
     
