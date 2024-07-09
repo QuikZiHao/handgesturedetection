@@ -16,7 +16,7 @@ import copy
 
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--func_amt",type=int,default=6)
+    parser.add_argument("--func_amt",type=int,default=8)
     parser.add_argument("--remember_step",type=int,default=100)
     parser.add_argument("--proceed_score",type=int,default=10)
     parser.add_argument("--width", help='cap width', type=int, default=960)
@@ -58,6 +58,8 @@ def main():
         3: MagicFunction.do_screenshot,
         4: MagicFunction.do_paste,
         5: MagicFunction.do_copy,
+        6: MagicFunction.volume_up,
+        7: MagicFunction.volume_down,
         -1: None
     }
     

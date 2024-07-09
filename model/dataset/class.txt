@@ -4,3 +4,5 @@
 3 screenshot
 4 paste
 5 copy
+6 volume up
+7 volume down
