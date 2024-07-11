@@ -3,4 +3,3 @@ assets/*
 __pycache__/
 flow.png
 dataset
-model/save/*
