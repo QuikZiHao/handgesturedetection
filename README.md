@@ -28,7 +28,8 @@ python app.py
 
 ## Learn to create your own model!
 Environment setup:
-1. Run createEnv.bat, it will install all the requirements needed for the app to run.
+1. Ensure that python is installed in your device.
+2. Run createEnv.bat by double clicking it, it will install all the requirements needed for the app to run.
 
 Data Preprocessing:
 1. First, collect your own dataset by refering to here [hand-gesture-recognition-mediapipe](https://github.com/kinivi/hand-gesture-recognition-mediapipe). 
