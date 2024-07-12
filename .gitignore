@@ -3,3 +3,4 @@ assests/*
 __pycache__/
 flow.png
 dataset
+.ipynb
